@@ -6,16 +6,23 @@ from generate_random_splits import generate_random_splits
 
 def prepare_sample_label_map(args, split):
     basedir = args.data
-    split_name = args.splits[split]
-    metadir = os.path.join(basedir, split_name, 'metadata')
+    split_name_pos = args.pos_splits[split]
+    split_name_neg = args.neg_splits[split]
+    pos_metadir = os.path.join(basedir, split_name_pos, 'metadata')
+    neg_metadir = os.path.join(basedir, split_name_neg, 'metadata')
 
-    with open(os.path.join(metadir, 'combined.npy'), 'rb') as f:
-        metadata = np.load(f)
+    with open(os.path.join(pos_metadir, 'combined.npy'), 'rb') as f:
+        pos_metadata = np.load(f)
+    with open(os.path.join(neg_metadir, 'combined.npy'), 'rb') as f:
+        neg_metadata = np.load(f)
 
     dict_map = {}
-    for entry in metadata:
-        path = os.path.join(basedir, split_name, entry[0], entry[2])
-        dict_map[path] = ('yes' if entry[4] == '1' else 'no')
+    for entry in pos_metadata:
+        path = os.path.join(basedir, split_name_pos, entry[0], entry[1])
+        dict_map[path] = ('yes' if entry[3] == '1' else 'no')
+    for entry in neg_metadata:
+        path = os.path.join(basedir, split_name_neg, entry[0], entry[1])
+        dict_map[path] = ('yes' if entry[3] == '1' else 'no')
 
     return dict_map
 
@@ -41,9 +48,11 @@ def random_sample_images(args, map_sam_to_lab):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Prepare data for JSPsych Experiments')
     parser.add_argument('-d', '--data', type=str, help='Path to the root directory of dataset, which contains \
-            the different split directories (e.g.: baseline, ix1, ix2) with sample images and metadata, respectively')
-    parser.add_argument('-sp', '--splits', nargs='*', default=['baseline-', 'ix1-', 'ix2'], help='Which splits to use to \
-            form the dataset for experiments')
+            the different split directories (e.g.: baseline, length_9, length_14) with sample images and metadata, respectively')
+    parser.add_argument('-ps', '--pos-splits', nargs='*', default=['curv_baseline', 'curv_contour_length_9', 'curv_contour_length_14'], help='Splits with positive samples \
+            to form the dataset for experiments')
+    parser.add_argument('-ns', '--neg-splits', nargs='*', default=['curv_baseline_neg', 'curv_contour_length_9_neg', 'curv_contour_length_14_neg'], help='Splits with negative samples \
+            to form the dataset for experiments')
     parser.add_argument('-n', '--num-samples', type=int, help='Number of random samples to draw from the given \
             set of images using the metadata to balance classes (should be divisible by number of classes), \
             from each of the splits')
@@ -56,7 +65,7 @@ if __name__ == '__main__':
     final_pos = []
     final_neg = []
     all_sam_to_lab = {}
-    for i in range(len(args.splits)):
+    for i in range(len(args.pos_splits)):
         map_sam_to_lab = prepare_sample_label_map(args, split=i)
         all_sam_to_lab.update(map_sam_to_lab)
         pos_samples, neg_samples = random_sample_images(args, map_sam_to_lab)
