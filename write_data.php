@@ -2,9 +2,10 @@
 
 // this path should point to your configuration file.
 include('database_config.php');
+$table = "pfind_exp_results";
 
 $data_array = json_decode(file_get_contents('php://input'), true);
-$filepath = "../data/".$data_array['filename'].".csv"; 
+$filepath = "/media/kalpit/Kalpit/pfind-new-data/".$data_array['filename'].".csv"; 
 $data = $data_array['filedata'];
 // write the file to disk
 file_put_contents($filepath, $data);

@@ -86,11 +86,11 @@ if __name__ == '__main__':
         from shutil import copy
         for i, sam_list in enumerate(samples):
             if not args.train:
-                splitpath = os.path.join(args.project_dir, 'img', 'split'+str(i+1))
+                splitpath = os.path.join(args.project_dir, 'home/kalpit', 'split'+str(i+1))
                 if not os.path.exists(splitpath):
                     os.makedirs(splitpath)
             else:
-                splitpath = os.path.join(args.project_dir, 'img', 'train')
+                splitpath = os.path.join(args.project_dir, 'home/kalpit', 'train')
                 if not os.path.exists(splitpath):
                     os.makedirs(splitpath)
 

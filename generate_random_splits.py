@@ -35,9 +35,9 @@ def generate_random_splits(pos_samples, neg_samples, map_sam_to_lab, n_splits=5)
         for sam in sams:
             lab = map_sam_to_lab[sam]
             if n_splits == 1:
-                fn.write("{ stimulus: 'img/train/"+'_'.join(sam.split('/')[-4:])+"', data: { part: 'train', correct_response: '"+map_sam_to_lab[sam]+"'}, correct_key: %d },\n" % (189 if lab == 'no' else 187))
+                fn.write("{ stimulus: './home/kalpit/train/"+'_'.join(sam.split('/')[-4:])+"', data: { part: 'train', correct_response: '"+map_sam_to_lab[sam]+"'}, correct_key: %d },\n" % (189 if lab == 'no' else 187))
             else:
-                fn.write("{ stimulus: 'img/split"+str(i+1)+"/"+'_'.join(sam.split('/')[-4:])+"', data: { part: 'split"+str(i+1)+"', correct_response: '"+map_sam_to_lab[sam]+"'}, correct_key: %d },\n" % (189 if lab == 'no' else 187))
+                fn.write("{ stimulus: './home/kalpit/split"+str(i+1)+"/"+'_'.join(sam.split('/')[-4:])+"', data: { part: 'split"+str(i+1)+"', correct_response: '"+map_sam_to_lab[sam]+"'}, correct_key: %d },\n" % (189 if lab == 'no' else 187))
             labs.append(lab)
         labs = np.asarray(labs)
         split_samples.append(sams)
