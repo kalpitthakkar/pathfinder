@@ -102,8 +102,8 @@ if __name__ == '__main__':
     curs = conn.cursor()
     sub_itr = 0
     complete = False
-    for speed in [1200]:
-        if sub_itr == args.num_subjects:
+    for speed in [1066, 1332]:
+        if sub_itr == 2*args.num_subjects:
             complete = True
 
         while not complete:
@@ -133,11 +133,19 @@ if __name__ == '__main__':
                             new_path = os.path.join(subdir, pngdir, '1000-'+str(speed)+'.webm')
                             writer.writerow([str(k), 'lev2', new_path, all_sam_to_lab[x]])
                     try:
-                        curs.execute("""INSERT INTO pfind_exp_settings VALUES (%s,%s,%s,%s,%s)""", (j+1,i+1,336+sub_itr+1,csvfile,speed))
+                        curs.execute("""INSERT INTO pfind_exp_settings VALUES (%s,%s,%s,%s,%s)""", (j+1,i+1,504+sub_itr+1,csvfile,speed))
                         conn.commit()
                     except:
                         print "Couldn't insert into table"
                         conn.rollback()
+
+                    try:
+                        curs.execute("""INSERT INTO pfind_exp_runid(subject_id, state) VALUES (%s,%s)""", ('dummyid','incomplete'))
+                        conn.commit()
+                    except:
+                        print "Couldn't insert into table"
+                        conn.rollback()
+
 
                     print "S"+str(sub_itr+1)+": Processed permutation ["+str(lperm)+"] (level) with "+fperm+" (finger assignment) with rt "+str(speed)+" ms"
                     sub_itr += 1
