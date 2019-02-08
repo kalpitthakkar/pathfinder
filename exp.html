@@ -93,10 +93,6 @@
 
         function readStimuli() {
             var rawFile = new XMLHttpRequest();
-            //while(csvfile.charAt(0) === '/')
-            //{
-            //    csvfile = csvfile.substr(1);
-            //}
             console.log(csvfile);
             rawFile.open('GET',csvfile,true);
 
@@ -120,8 +116,8 @@
                                 var dataPart = { };
                                 dataPart.part = lines[j].level;
                                 dataPart.correct_response = lines[j].sample_gt;
-                                valueToPush.stimulus = '<video width='+width+' height='+height+' autoplay > <source src="./'+
-                                    lines[j].sample_path+'"> </video>'
+                                valueToPush.stimulus = '<video width='+width+' height='+height+' autoplay > <source src="'+
+                                    lines[j].sample_path+'/1000-'+rtime+'.webm"> </video>'
                                 valueToPush.data = dataPart;
                                 valueToPush.correct_key = response_types[exp_type[fperm_id - 1]][lines[j].sample_gt];
                                 stim.push(valueToPush);
