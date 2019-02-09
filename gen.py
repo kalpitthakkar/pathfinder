@@ -102,8 +102,9 @@ if __name__ == '__main__':
     curs = conn.cursor()
     sub_itr = 0
     complete = False
-    for speed in [800, 1100, 1400]:
-        if sub_itr == 3*args.num_subjects:
+    #for speed in [800, 1100, 1400]:
+    for speed in [1800]:
+        if sub_itr == args.num_subjects:
             complete = True
 
         while not complete:
@@ -152,6 +153,6 @@ if __name__ == '__main__':
 
                     print "S"+str(sub_itr+1)+": Processed permutation ["+str(lperm)+"] (level) with "+fperm+" (finger assignment) with rt "+str(speed)+" ms"
                     sub_itr += 1
-            if sub_itr == args.num_subjects or sub_itr == 2*args.num_subjects or sub_itr == 3*args.num_subjects:
+            if sub_itr == args.num_subjects:
                 break
     conn.close()

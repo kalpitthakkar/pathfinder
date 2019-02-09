@@ -60,15 +60,15 @@ if __name__ == '__main__':
     import glob
     #input_image_paths = sorted(glob.glob('/opt/lampp/cnist-experiment/home/kalpit/cnist-new/vids/*'))
     #input_image_paths = ['/opt/lampp/cnist-experiment/home/kalpit/train/fast']
-    input_image_paths = sorted(glob.glob('/opt/lampp/pathfinder-experiment/home/kalpit/pfind-new/vids/*'))
-    #input_image_paths = ['/opt/lampp/pathfinder-experiment/home/kalpit/train/fast']
+    input_image_paths = sorted(glob.glob('/home/kalpit/pfind-exp/home/kalpit/pfind-new/vids/*'))
+    #input_image_paths = ['/home/kalpit/pfind-exp/home/kalpit/train/fast']
 
     #output_paths = sorted(glob.glob('/opt/lampp/cnist-experiment/home/kalpit/cnist-new/vids/*'))
     #output_paths = ['/opt/lampp/cnist-experiment/home/kalpit/train/fast']
-    output_paths = sorted(glob.glob('/opt/lampp/pathfinder-experiment/home/kalpit/pfind-new/vids/*'))
-    #output_paths = ['/opt/lampp/pathfinder-experiment/home/kalpit/train/fast']
+    output_paths = sorted(glob.glob('/home/kalpit/pfind-exp/home/kalpit/pfind-new/vids/*'))
+    #output_paths = ['/home/kalpit/pfind-exp/home/kalpit/train/fast']
 
-    show_times = [800, 1100, 1400]
+    show_times = [1800]
     for st in show_times:
         [generate_stimulus_videos(
             p, o, onset_times_ms, after_time_ms, stim_show_time_ms=st)  # MAKE SURE STIM_SHOW_TIME = SETTINGS.PY
