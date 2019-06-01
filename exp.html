@@ -116,7 +116,8 @@
                                 //console.log(lines[j].sample_path);
                                 var valueToPush = { };
                                 var dataPart = { };
-                                dataPart.part = lines[j].level;
+                                dataPart.level = lines[j].level;
+                                dataPart.part = 'test';
                                 dataPart.correct_response = lines[j].sample_gt;
                                 valueToPush.stimulus = '<video width='+width+' height='+height+' autoplay > <source src="'+
                                     lines[j].sample_path+'/1000-'+rtime+'.webm"> </video>'
@@ -163,30 +164,30 @@
             var key_no = keys_allowed[fperm_id-1][1];
 
             var train_slow = [
-                { stimulus: './home/kalpit/train/slow/curv_baseline_imgs_10_sample_515.png', data: { part: 'train', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
-                { stimulus: './home/kalpit/train/slow/curv_baseline_neg_imgs_14_sample_1184.png', data: { part: 'train', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
-                { stimulus: './home/kalpit/train/slow/curv_contour_length_14_neg_imgs_10_sample_5611.png', data: { part: 'train', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
-                { stimulus: './home/kalpit/train/slow/curv_contour_length_14_imgs_17_sample_8968.png', data: { part: 'train', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
-                { stimulus: './home/kalpit/train/slow/curv_contour_length_9_imgs_10_sample_10259.png', data: { part: 'train', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
-                { stimulus: './home/kalpit/train/slow/curv_contour_length_9_neg_imgs_16_sample_6076.png', data: { part: 'train', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
+                { stimulus: './home/kalpit/train/slow/curv_baseline_imgs_10_sample_515.png', data: { part: 'strain', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
+                { stimulus: './home/kalpit/train/slow/curv_baseline_neg_imgs_14_sample_1184.png', data: { part: 'strain', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
+                { stimulus: './home/kalpit/train/slow/curv_contour_length_14_neg_imgs_10_sample_5611.png', data: { part: 'strain', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
+                { stimulus: './home/kalpit/train/slow/curv_contour_length_14_imgs_17_sample_8968.png', data: { part: 'strain', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
+                { stimulus: './home/kalpit/train/slow/curv_contour_length_9_imgs_10_sample_10259.png', data: { part: 'strain', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
+                { stimulus: './home/kalpit/train/slow/curv_contour_length_9_neg_imgs_16_sample_6076.png', data: { part: 'strain', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
             ];
 
             var train_fast = [
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_9_neg_imgs_7_sample_7557/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_14_neg_imgs_24_sample_501/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_9_imgs_15_sample_3431/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_14_neg_imgs_6_sample_8304/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_9_imgs_17_sample_1166/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_14_imgs_4_sample_8148/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_baseline_neg_imgs_23_sample_8851/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_baseline_imgs_1_sample_130/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_baseline_imgs_20_sample_1040/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_14_imgs_9_sample_1423/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_14_neg_imgs_7_sample_5305/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_9_neg_imgs_6_sample_8640/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_baseline_neg_imgs_15_sample_9029/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_baseline_neg_imgs_22_sample_4226/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
-                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_9_imgs_8_sample_5781/1000-'+rtime+'.webm"> </video>', data: { part: 'train', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_9_neg_imgs_7_sample_7557/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_14_neg_imgs_24_sample_501/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_9_imgs_15_sample_3431/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_14_neg_imgs_6_sample_8304/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_9_imgs_17_sample_1166/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_14_imgs_4_sample_8148/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_baseline_neg_imgs_23_sample_8851/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_baseline_imgs_1_sample_130/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_baseline_imgs_20_sample_1040/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_14_imgs_9_sample_1423/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_14_neg_imgs_7_sample_5305/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_9_neg_imgs_6_sample_8640/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_baseline_neg_imgs_15_sample_9029/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_baseline_neg_imgs_22_sample_4226/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'no'}, correct_key: response_types[exp_type[fperm_id-1]]['no'] },
+                { stimulus: '<video width=256 height=256 autoplay > <source src="./home/kalpit/train/fast/curv_contour_length_9_imgs_8_sample_5781/1000-'+rtime+'.webm"> </video>', data: { part: 'ftrain', correct_response: 'yes'}, correct_key: response_types[exp_type[fperm_id-1]]['yes'] },
             ];
 
             var preview_images = [
@@ -273,6 +274,70 @@
                 prompt: "<p class='prompt'> Are the two circles on the same curve? Respond ("+key_yes+")yes or ("+key_no+")no: </p>",
             };
 
+            var test_debrief_block = {
+                type: 'html-keyboard-response',
+                stimulus: function() {
+                    var trials = jsPsych.data.get().filter({part: 'test'});
+                    var ort = trials.select('rt');
+                    ort.values = ort.values.map(function(value) {
+                        return value - 1000; 
+                    });
+                    var rt_overall = Math.round(ort.mean());
+                    var correct_trials = trials.filter({correct: true});
+                    var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+                    var crt = correct_trials.select('rt');
+                    crt.values = crt.values.map(function(value) {
+                        return value - 1000; 
+                    });
+                    var rt = Math.round(crt.mean());
+                    if (isNaN(rt)) {
+                        return "<p> Test Phase </p>"+
+                           "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
+                           "<p>Your average response time (overall responses) was "+rt_overall+" ms.</p>"+
+                           "<p>Press RETURN (Enter) key to continue.</p>";
+                    }
+
+                    return "<p> Test Phase </p>"+
+                           "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
+                           "<p>Your average response time (correct responses) was "+rt+" ms.</p>"+
+                           "<p>Your average response time (overall responses) was "+rt_overall+" ms.</p>"+
+                           "<p>Press RETURN (Enter) key to continue.</p>";
+                },
+                choices: [13]
+            };
+
+            var train_debrief_block = {
+                type: 'html-keyboard-response',
+                stimulus: function() {
+                    var trials = jsPsych.data.get().filter({part: 'ftrain'});
+                    var ort = trials.select('rt');
+                    ort.values = ort.values.map(function(value) {
+                        return value - 1000; 
+                    });
+                    var rt_overall = Math.round(ort.mean());
+                    var correct_trials = trials.filter({correct: true});
+                    var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+                    var crt = correct_trials.select('rt');
+                    crt.values = crt.values.map(function(value) {
+                        return value - 1000; 
+                    });
+                    var rt = Math.round(crt.mean());
+                    if (isNaN(rt)) {
+                        return "<p> Training Phase </p>"+
+                           "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
+                           "<p>Your average response time (overall responses) was "+rt_overall+" ms.</p>"+
+                           "<p>Press RETURN (Enter) key to continue.</p>";
+                    }
+
+                    return "<p> Training Phase </p>"+
+                           "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
+                           "<p>Your average response time (correct responses) was "+rt+" ms.</p>"+
+                           "<p>Your average response time (overall responses) was "+rt_overall+" ms.</p>"+
+                           "<p>Press RETURN (Enter) key to continue.</p>";
+                },
+                choices: [13]
+            };
+
             var preview_block = {
                 type: "categorize-image",
                 stimulus: jsPsych.timelineVariable('stimulus'),
@@ -336,7 +401,7 @@
             };
 
             var train_fast = {
-                timeline: [fast_block],
+                timeline: [fast_block, train_debrief_block],
                 timeline_variables: train_fast,
                 randomize_order: false
             };
@@ -365,7 +430,7 @@
             timeline.push(train_fast);
 
             var test_base = {
-                timeline: [test_block],
+                timeline: [test_block, test_debrief_block],
                 timeline_variables: createBaseBlock(0),
                 randomize_order: true
             };
@@ -374,7 +439,7 @@
             timeline.push(rest2);
             
             var test_level1 = {
-                timeline: [test_block],
+                timeline: [test_block, test_debrief_block],
                 timeline_variables: createBaseBlock(1),
                 randomize_order: true,
             };
@@ -383,7 +448,7 @@
             timeline.push(rest3);
 
             var test_level2 = {
-                timeline: [test_block],
+                timeline: [test_block, test_debrief_block],
                 timeline_variables: createBaseBlock(2),
                 randomize_order: true,
             };

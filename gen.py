@@ -86,9 +86,6 @@ if __name__ == '__main__':
     if not os.path.exists(splits_dir):
         os.makedirs(splits_dir)
 
-    one = sample_level[0][0]
-    two = sample_level[0][6]
-
     '''
     import itertools
     from shutil import copy
@@ -157,7 +154,7 @@ if __name__ == '__main__':
 
                     print "S"+str(sub_itr+1)+": Processed permutation ["+str(lperm)+"] (level) with "+fperm+" (finger assignment) with rt "+str(speed)+" ms"
                     sub_itr += 1
-            if sub_itr == args.num_subjects or sub_itr == 2*args.num_subjects or sub_itr == 3*args.num_subjects:
+            if sub_itr == args.num_subjects:
                 break
     conn.close()
     '''
