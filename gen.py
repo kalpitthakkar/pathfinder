@@ -4,7 +4,7 @@ import argparse
 
 from generate_random_splits import generate_random_splits
 
-def prepare_sample_label_map(args, split):
+def prepare_sample_label_map(args, split, limit=200):
     basedir = args.data
     split_name = args.splits[split]
     metadir = os.path.join(basedir, split_name, 'metadata')
@@ -13,7 +13,7 @@ def prepare_sample_label_map(args, split):
         metadata = np.load(f)
 
     dict_map = {}
-    for entry in metadata:
+    for entry in metadata[:90]:
         path = os.path.join(basedir, split_name, entry[0], entry[1])
         dict_map[path] = ('yes' if entry[3] == '1' else 'no')
 
@@ -86,6 +86,10 @@ if __name__ == '__main__':
     if not os.path.exists(splits_dir):
         os.makedirs(splits_dir)
 
+    one = sample_level[0][0]
+    two = sample_level[0][6]
+
+    '''
     import itertools
     from shutil import copy
     level_order_perms = list(itertools.permutations([0,1,2]))
@@ -102,7 +106,7 @@ if __name__ == '__main__':
     curs = conn.cursor()
     sub_itr = 0
     complete = False
-    for speed in [800, 1100, 1400]:
+    for speed in [800, 1050, 1300]:
         if sub_itr == 3*args.num_subjects:
             complete = True
 
@@ -128,6 +132,7 @@ if __name__ == '__main__':
                         print "Couldn't insert into table"
                         conn.rollback()
                     if os.path.exists(csvfile):
+                        print "S"+str(sub_itr+1)+": Processed permutation ["+str(lperm)+"] (level) with "+fperm+" (finger assignment) with rt "+str(speed)+" ms"
                         sub_itr += 1
                         continue
                     with open(csvfile, 'w') as f:
@@ -155,3 +160,4 @@ if __name__ == '__main__':
             if sub_itr == args.num_subjects or sub_itr == 2*args.num_subjects or sub_itr == 3*args.num_subjects:
                 break
     conn.close()
+    '''
